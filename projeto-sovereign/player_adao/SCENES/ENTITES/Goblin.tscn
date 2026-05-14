@@ -1,11 +1,11 @@
-[gd_scene load_steps=42 format=3 uid="uid://ueityue12ahn"]
+[gd_scene format=3 uid="uid://ueityue12ahn"]
 
-[ext_resource type="Texture2D" uid="uid://c3u8pe6owyd5g" path="res://assets/graphics/characters/personagens CARINHA/Monsters_Creatures_Fantasy/Goblin/Attack.png" id="1_01kty"]
-[ext_resource type="Texture2D" uid="uid://2l6j361josej" path="res://assets/graphics/characters/personagens CARINHA/Monsters_Creatures_Fantasy/Goblin/Idle.png" id="1_4f871"]
-[ext_resource type="Script" uid="uid://cguhunrhlulij" path="res://scripts/ENTITIES/goblin.gd" id="1_iay4v"]
-[ext_resource type="Texture2D" uid="uid://dannt1ift03t" path="res://assets/graphics/characters/personagens CARINHA/Monsters_Creatures_Fantasy/Goblin/Run.png" id="2_cbkvs"]
-[ext_resource type="Texture2D" uid="uid://bgx2p7ff3ou8u" path="res://assets/graphics/characters/personagens CARINHA/Monsters_Creatures_Fantasy/Goblin/Death.png" id="2_s62bm"]
-[ext_resource type="Texture2D" uid="uid://xk7w7phj5w2j" path="res://assets/graphics/characters/personagens CARINHA/Monsters_Creatures_Fantasy/Goblin/Take Hit.png" id="4_s62bm"]
+[ext_resource type="Texture2D" uid="uid://c3u8pe6owyd5g" path="res://player_adao/ASSETS/ENTITIES/characters/personagens CARINHA/Monsters_Creatures_Fantasy/Goblin/Attack.png" id="1_01kty"]
+[ext_resource type="Texture2D" uid="uid://2l6j361josej" path="res://player_adao/ASSETS/ENTITIES/characters/personagens CARINHA/Monsters_Creatures_Fantasy/Goblin/Idle.png" id="1_4f871"]
+[ext_resource type="Script" uid="uid://cguhunrhlulij" path="res://player_adao/SCRIPTS/ENTITIES/goblin.gd" id="1_iay4v"]
+[ext_resource type="Texture2D" uid="uid://dannt1ift03t" path="res://player_adao/ASSETS/ENTITIES/characters/personagens CARINHA/Monsters_Creatures_Fantasy/Goblin/Run.png" id="2_cbkvs"]
+[ext_resource type="Texture2D" uid="uid://bgx2p7ff3ou8u" path="res://player_adao/ASSETS/ENTITIES/characters/personagens CARINHA/Monsters_Creatures_Fantasy/Goblin/Death.png" id="2_s62bm"]
+[ext_resource type="Texture2D" uid="uid://xk7w7phj5w2j" path="res://player_adao/ASSETS/ENTITIES/characters/personagens CARINHA/Monsters_Creatures_Fantasy/Goblin/Take Hit.png" id="4_s62bm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_igscb"]
 atlas = ExtResource("1_01kty")
@@ -252,41 +252,49 @@ gradient = SubResource("Gradient_lq12u")
 width = 42
 height = 4
 
-[node name="CharacterBody2D" type="CharacterBody2D" groups=["enemy"]]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1591665509 groups=["enemy"]]
 scale = Vector2(1.1, 1.1)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_iay4v")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2130955456]
 sprite_frames = SubResource("SpriteFrames_igscb")
-animation = &"idle"
+animation = &"take_hit"
 autoplay = "idle"
-frame_progress = 0.48475757
+frame = 3
+frame_progress = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1871612136]
+visible = false
 position = Vector2(0, 8)
 shape = SubResource("CapsuleShape2D_lvb16")
 
-[node name="AreaAttack" type="Area2D" parent="."]
+[node name="AreaAttack" type="Area2D" parent="." unique_id=1414911405]
+visible = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAttack"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAttack" unique_id=174205901]
+visible = false
 position = Vector2(21.693178, 8.636363)
 shape = SubResource("RectangleShape2D_b84k8")
 debug_color = Color(0.9937001, 0, 0.24056926, 0.41960785)
 
-[node name="DetectionAura" type="Area2D" parent="."]
+[node name="DetectionAura" type="Area2D" parent="." unique_id=1456838074]
+visible = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionAura"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionAura" unique_id=1082189323]
+visible = false
 shape = SubResource("CircleShape2D_iay4v")
 debug_color = Color(0.7283116, 0.7496608, 0.5559699, 0.41960785)
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=941783331]
+visible = false
 position = Vector2(0, 7.272727)
 target_position = Vector2(14.545454, 0)
 collision_mask = 3
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1956658029]
+visible = false
 offset_left = -20.909092
 offset_top = -17.272726
 offset_right = 21.090908

@@ -197,6 +197,9 @@ func aplicar_dano_em_area():
 	for corpo in corpos:
 		if corpo.is_in_group("enemy") and corpo.has_method("take_damage"):
 			deu_dano = true
+			if current_attack == 3 and corpo.has_method("take_kb"):
+				var direcao_kb = sign(corpo.position.x - position.x)
+				corpo.take_kb(direcao_kb)
 			corpo.take_damage(20)
 	tocar_som_atk(deu_dano)
 

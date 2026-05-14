@@ -13,6 +13,7 @@ const SPEED = 200
 @onready var area_ataque: Area2D = $AreaAttack
 
 # Estados
+var tomando_kb = false
 var player_na_area_ataque = false
 var player = null
 var is_attacking = false
@@ -28,8 +29,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
-	movimentacao()
+		
+	if not tomando_kb:
+		movimentacao()
 	move_and_slide()
 	atualizar_animacoes()
 
@@ -123,7 +125,7 @@ func morrer():
 	queue_free()
 
 func atualizar_animacoes():
-	if is_attacking or is_hurting:
+	if is_attacking or is_hurting or tomando_kb:
 		return
 		
 	if velocity.x != 0:
@@ -149,3 +151,12 @@ func _on_area_attack_body_entered(body: Node2D) -> void:
 func _on_area_attack_body_exited(body: Node2D) -> void:
 	if body == player:
 		player_na_area_ataque = false
+		
+func take_kb(direcao):
+	tomando_kb = true
+	velocity.x = 300 * direcao
+	velocity.y = -100
+	animacao.play("take_hit")
+	animacao.frame = 2
+	await get_tree().create_timer(0.4).timeout
+	tomando_kb = false
