@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://2ubs43x55u6f"]
+
+[ext_resource type="Script" uid="uid://dagtti6yiftaf" path="res://player_adao/SCRIPTS/TRAPS/spike.gd" id="1_iuxmh"]
+[ext_resource type="Texture2D" uid="uid://b4cwajt4qavld" path="res://player_adao/ASSETS/TRAP/Moving Spikes 32x32 scaled 64x64.png" id="1_uo3ob"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iuxmh"]
+atlas = ExtResource("1_uo3ob")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_od4fi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iuxmh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_171mf"]
+size = Vector2(60, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iuxmh"]
+size = Vector2(60, 10)
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=1751352093]
+script = ExtResource("1_iuxmh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=778192590]
+sprite_frames = SubResource("SpriteFrames_od4fi")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=899109029]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=617105213]
+position = Vector2(1, 17)
+shape = SubResource("RectangleShape2D_171mf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1238105225]
+position = Vector2(1, 27)
+shape = SubResource("RectangleShape2D_iuxmh")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,52 @@
+[gd_scene load_steps=10 format=3 uid="uid://es408mqtedig"]
+
+[ext_resource type="Texture2D" uid="uid://d3pv1ofny6vx8" path="res://player_adao/ASSETS/ENTITIES/characters/Individual Sprite/Idle/Bringer-of-Death_Idle_1.png" id="1_crb7v"]
+[ext_resource type="Texture2D" uid="uid://cqm7154y3gyg7" path="res://player_adao/ASSETS/ENTITIES/characters/Individual Sprite/Idle/Bringer-of-Death_Idle_2.png" id="2_iixxw"]
+[ext_resource type="Texture2D" uid="uid://b6c57tl5to2tj" path="res://player_adao/ASSETS/ENTITIES/characters/Individual Sprite/Idle/Bringer-of-Death_Idle_3.png" id="3_texmm"]
+[ext_resource type="Texture2D" uid="uid://dhbtsqkntq1ji" path="res://player_adao/ASSETS/ENTITIES/characters/Individual Sprite/Idle/Bringer-of-Death_Idle_4.png" id="4_lt3db"]
+[ext_resource type="Texture2D" uid="uid://bgmbvmnkkhshr" path="res://player_adao/ASSETS/ENTITIES/characters/Individual Sprite/Idle/Bringer-of-Death_Idle_5.png" id="5_fmdac"]
+[ext_resource type="Texture2D" uid="uid://7kiaciswta6v" path="res://player_adao/ASSETS/ENTITIES/characters/Individual Sprite/Idle/Bringer-of-Death_Idle_6.png" id="6_ogcbv"]
+[ext_resource type="Texture2D" uid="uid://c5ev1dyvyik86" path="res://player_adao/ASSETS/ENTITIES/characters/Individual Sprite/Idle/Bringer-of-Death_Idle_7.png" id="7_sdijp"]
+[ext_resource type="Texture2D" uid="uid://bejmhu8wtug46" path="res://player_adao/ASSETS/ENTITIES/characters/Individual Sprite/Idle/Bringer-of-Death_Idle_8.png" id="8_wfdaq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eod5e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_crb7v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_iixxw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_texmm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lt3db")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fmdac")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ogcbv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_sdijp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wfdaq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-107, -16)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_eod5e")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.39375967

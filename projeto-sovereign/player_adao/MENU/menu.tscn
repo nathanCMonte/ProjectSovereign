@@ -1,0 +1,129 @@
+[gd_scene load_steps=15 format=3 uid="uid://defj6k4q4jbeo"]
+
+[ext_resource type="FontFile" uid="uid://l16qg3wpjgw1" path="res://player_adao/MENU/upheavtt.ttf" id="1_lti8b"]
+[ext_resource type="Script" uid="uid://dibjhv7bxximq" path="res://player_adao/MENU/menu.gd" id="1_ouk20"]
+[ext_resource type="Texture2D" uid="uid://mlw530btqntm" path="res://player_adao/MENU/Gemini_Generated_Image_52je7552je7552je.png" id="2_kk3ma"]
+[ext_resource type="Shader" uid="uid://b05f77gajvyqu" path="res://player_adao/MENU/menu.gdshader" id="3_ecwwl"]
+[ext_resource type="Texture2D" uid="uid://dsmgyqr5ybs0q" path="res://player_adao/MENU/arma-sovereing.png" id="5_ecwwl"]
+[ext_resource type="Script" uid="uid://bxvtyrphwfes3" path="res://player_adao/MENU/titulo.gd" id="5_kk3ma"]
+
+[sub_resource type="GDScript" id="GDScript_kk3ma"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nrnbx"]
+shader = ExtResource("3_ecwwl")
+shader_parameter/shine_color = Color(1, 1, 1, 1)
+shader_parameter/shine_speed = 1.0
+shader_parameter/shine_size = 0.4
+script = SubResource("GDScript_kk3ma")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l48gv"]
+bg_color = Color(0, 1.365921, 0.60534996, 0.8039216)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ecwwl"]
+bg_color = Color(0.6, 0.6, 0.6, 0.8039216)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kk3ma"]
+bg_color = Color(0.043137256, 0.62352943, 1, 0.8039216)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nrnbx"]
+bg_color = Color(0, 0.62352943, 1, 0.8039216)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h1wq0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iqepy"]
+bg_color = Color(0, 0.64705884, 0.90588236, 0.8039216)
+
+[node name="menu" type="Node2D"]
+scale = Vector2(0.94727945, 0.9844307)
+script = ExtResource("1_ouk20")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(565.83093, 337.25073)
+scale = Vector2(0.94243956, 0.8969435)
+texture = ExtResource("2_kk3ma")
+flip_h = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+modulate = Color(0.4, 0, 0, 1)
+material = SubResource("ShaderMaterial_nrnbx")
+offset_left = 363.14517
+offset_top = 121.897865
+offset_right = 770.14526
+offset_bottom = 450.89786
+scale = Vector2(1.1924167, 1.159625)
+theme_override_constants/separation = 16
+
+[node name="titulo" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_lti8b")
+theme_override_font_sizes/font_size = 76
+text = "Sovereign"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_kk3ma")
+
+[node name="start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_lti8b")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_l48gv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ecwwl")
+text = "start"
+
+[node name="options" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_lti8b")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_kk3ma")
+text = "options"
+
+[node name="credits" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_lti8b")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_nrnbx")
+text = "credits"
+
+[node name="how2play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_lti8b")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_nrnbx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h1wq0")
+text = "how to play"
+
+[node name="quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_lti8b")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_iqepy")
+text = "quit"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -278.0
+offset_top = 85.0
+offset_right = -229.0
+offset_bottom = 109.0
+expand_mode = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-181, 203)
+scale = Vector2(0.13308716, 0.09170024)
+texture = ExtResource("5_ecwwl")
+flip_h = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = -304.0
+offset_top = 180.0
+offset_right = -255.0
+offset_bottom = 203.0
+expand_mode = 1
+
+[connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/credits" to="." method="_on_credits1_pressed"]
+[connection signal="pressed" from="VBoxContainer/how2play" to="." method="_on_how_2_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]

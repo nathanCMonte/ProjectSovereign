@@ -1,0 +1,111 @@
+[gd_scene load_steps=8 format=3 uid="uid://cb8u8art1w5sv"]
+
+[ext_resource type="Script" uid="uid://wvqwn8hjpwbl" path="res://player_adao/MENU/how_to_play.gd" id="1_63myv"]
+[ext_resource type="Texture2D" uid="uid://mlw530btqntm" path="res://player_adao/MENU/Gemini_Generated_Image_52je7552je7552je.png" id="2_0v6qh"]
+[ext_resource type="FontFile" uid="uid://l16qg3wpjgw1" path="res://player_adao/MENU/upheavtt.ttf" id="4_0v6qh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lebvo"]
+bg_color = Color(0.023529412, 0, 0, 0.7490196)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_63myv"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0v6qh"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p1nn5"]
+bg_color = Color(0.65882355, 0, 0, 1)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_63myv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(536, 332)
+scale = Vector2(0.89275366, 0.88297874)
+texture = ExtResource("2_0v6qh")
+flip_h = true
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 208.0
+offset_top = 104.0
+offset_right = 838.0
+offset_bottom = 551.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lebvo")
+
+[node name="voltar" type="Button" parent="."]
+offset_left = 30.0
+offset_top = 566.0
+offset_right = 172.0
+offset_bottom = 602.0
+theme_override_colors/font_color = Color(0.4, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.4, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.4, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.4, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_0v6qh")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_63myv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0v6qh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p1nn5")
+text = "voltar"
+
+[node name="titulohowtoplay" type="Label" parent="."]
+modulate = Color(0.45882353, 0, 0, 1)
+offset_left = 359.0
+offset_top = 26.0
+offset_right = 675.0
+offset_bottom = 73.0
+theme_override_fonts/font = ExtResource("4_0v6qh")
+theme_override_font_sizes/font_size = 51
+text = "HOW TO PLAY"
+
+[node name="texto-controles" type="Label" parent="."]
+modulate = Color(0.45882353, 0, 0, 1)
+offset_left = 248.0
+offset_top = 168.0
+offset_right = 490.0
+offset_bottom = 196.0
+theme_override_fonts/font = ExtResource("4_0v6qh")
+theme_override_font_sizes/font_size = 30
+text = "Basic COntrols"
+
+[node name="movetexto" type="Label" parent="."]
+modulate = Color(0.45882353, 0, 0, 1)
+offset_left = 248.0
+offset_top = 232.0
+offset_right = 578.0
+offset_bottom = 265.0
+theme_override_fonts/font = ExtResource("4_0v6qh")
+theme_override_font_sizes/font_size = 30
+text = "move: wasd/joystick"
+
+[node name="jumptexto" type="Label" parent="."]
+modulate = Color(0.45882353, 0, 0, 1)
+offset_left = 248.0
+offset_top = 296.0
+offset_right = 624.0
+offset_bottom = 329.0
+theme_override_fonts/font = ExtResource("4_0v6qh")
+theme_override_font_sizes/font_size = 30
+text = "jump: space/w/button a"
+
+[node name="dashtexto" type="Label" parent="."]
+modulate = Color(0.45882353, 0, 0, 1)
+offset_left = 248.0
+offset_top = 360.0
+offset_right = 633.0
+offset_bottom = 393.0
+theme_override_fonts/font = ExtResource("4_0v6qh")
+theme_override_font_sizes/font_size = 30
+text = "dash: q/shift/L trigger"
+
+[node name="dashtexto2" type="Label" parent="."]
+modulate = Color(0.45882353, 0, 0, 1)
+offset_left = 248.0
+offset_top = 424.0
+offset_right = 827.0
+offset_bottom = 457.0
+theme_override_fonts/font = ExtResource("4_0v6qh")
+theme_override_font_sizes/font_size = 30
+text = "atack: left mouse button/ r trigger"
+
+[connection signal="pressed" from="voltar" to="." method="_on_voltar2_pressed"]
